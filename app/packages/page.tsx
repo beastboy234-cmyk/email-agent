@@ -1,0 +1,4 @@
+import { SectionHeader } from "@/components/SectionHeader";
+import { TripCard } from "@/components/TripCard";
+import { packages } from "@/lib/mock-data";
+export default function PackagesPage() { return <section className="section"><SectionHeader eyebrow="Destination Packages" title="Reusable templates for common family and leave trips" description="Each package includes budget, best-value, and comfortable options with estimated real total costs and stress warnings." /><div className="space-y-8">{packages.map((pkg) => <div className="card p-6" key={pkg.id}><h3 className="text-2xl font-black text-navy">{pkg.name}</h3><p className="mt-2 text-slate-600">{pkg.description}</p><div className="mt-5 grid gap-5 lg:grid-cols-3">{pkg.options.map((option) => <TripCard trip={option} compact key={option.id} />)}</div></div>)}</div></section>; }
